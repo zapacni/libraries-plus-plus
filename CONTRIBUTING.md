@@ -5,7 +5,7 @@ Welcome to the contributing guide! Here you will find the guidelines for contrib
 
 # Libraries++ Source Contributing Guide
 * Use `snake_case` for variable, parameter, etc. names
-* Custom library members always use `snake_case`
+* Custom library names use `snake_case`, library members also use `snake_case`
 * Built-in library extensions use all lowercase
 * Individual  functions belong as a submodule of their parent library (e.g join should be a child module of string)
 
