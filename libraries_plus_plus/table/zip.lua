@@ -1,5 +1,5 @@
 local function zip(...) -- help
-	local args, args_values = table.pack(...), { }
+	local args, args_values = { ... }, { }
 	local i = 0
 
 	return function()
