@@ -1,4 +1,4 @@
-local function isempty(tbl: { [any]: any }) -- idrc if it's a dict
+local function isempty(tbl: { [any]: any }): boolean -- idrc if it's a dict
 	return next(tbl) == nil
 end
 
