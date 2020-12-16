@@ -137,6 +137,9 @@ Example usage:
 table.shuffle({ "a", "b", "c", "d", "e", "f" }) --> { "d", "a", "c", "b", "f", "e" } (example result)
 ```
 
+**Exceptions**
+* This function will throw an exception if `#tbl < 2` since there is no point in shuffling a single-element table let alone an empty one.
+
 ### zip(...: { [number]: any })
 I don't know how to represent a function type that returns a function that returns a variant amount of arguments.
 This is essentially Python's `zip()`.
