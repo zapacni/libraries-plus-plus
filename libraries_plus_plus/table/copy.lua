@@ -1,6 +1,6 @@
 type array = { [number]: any }
 
-local function copy(tbl: array, deep: boolean): array
+local function copy(tbl: array, deep: boolean?): array
 	if not deep then
 		return table.move(tbl, 1, #tbl, 1, table.create(#tbl))
 	end
