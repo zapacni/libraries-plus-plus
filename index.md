@@ -9,7 +9,7 @@ Returns `str` with the first letter capitalized. Inspired by Python's `str.capit
 
 Example use:
 
-```
+```lua
 string.capitalize("john is cool") --> "John is cool"
 ```
 
@@ -18,7 +18,7 @@ Returns a boolean that indicates if `str` is entirely alphanumeric. Inspired by 
 
 Example use:
 
-```
+```lua
 string.isalnum("abc123") --> true
 ```
 
@@ -27,7 +27,7 @@ Returns a boolean that indicates if `str` is entirely alphabetical. Inspired by 
 
 Example use:
 
-```
+```lua
 string.isalpha("abc") --> true
 string.isalpha("hello world") --> false
 ```
@@ -37,7 +37,7 @@ Returns a boolean that indicates if `str` is entirely whitespace. Useful for whe
 
 Example use:
 
-```
+```lua
 string.iswhitespace(" ") --> true
 string.iswhitespace("    ") --> true
 string.iswhitespace("") --> false
@@ -48,7 +48,7 @@ If `iterable` is an array of `strings | numbers`, then functions exactly like `t
 
 Example use:
 
-```
+```lua
 string.join("", { "a", "b", "c" }) --> "abc"
 string.join("|", "xyz") --> "x|y|z"
 ```
@@ -58,7 +58,7 @@ Strips any leading and trailing whitespace from `str`, and optionally strips `st
 
 Example use:
 
-```
+```lua
 string.strip("    apple ") --> "apple"
 string.strip("    dogs are cute  ", "dc") -- "ogs are ute"
 ```
@@ -68,7 +68,7 @@ Returns a title-cased version of `str`.
 
 Example use:
 
-```
+```lua
 string.title("hello world foo bar") --> "Hello World Foo Bar"
 string.title("_hello world") --> "_hello World"
 ```
@@ -79,7 +79,7 @@ Only caveat is that no sign check is done. Maybe in the future this will be supp
 
 Example use:
 
-```
+```lua
 string.zfill("Hello", 10) --> "00000Hello"
 string.zfill("+500", 5) --> "0+500"
 ```
@@ -91,7 +91,7 @@ Returns a copy of `tbl`. The `deep` argument is optional; if not provided the fu
 
 Example use:
 
-```
+```lua
 local tbl = { { } }
 local shallow_tbl_copy = table.copy(tbl)
 local deep_tbl_copy = table.copy(tbl, true)
@@ -105,7 +105,7 @@ Returns the amount of times `value` is repeated in `tbl`.
 
 Example usage:
 
-```
+```lua
 table.getoccurrencesof({ "a", "b", "c", "a", "a" }, "a") --> 3
 ```
 
@@ -114,7 +114,7 @@ Returns a boolean that indicates whether or not `tbl` is empty. This function ca
 
 Example usage:
 
-```
+```lua
 table.isempty({ }) --> true
 table.isempty({ 0, 1, 2 }) --> false
 ```
@@ -124,7 +124,7 @@ Reverses `tbl` and returns it.
 
 Example usage:
 
-```
+```lua
 table.reverse({ 0, 1, 2 }) --> { 2, 1, 0 }
 ```
 
@@ -133,7 +133,7 @@ Shuffles the contents of `tbl` and returns `tbl` back shuffled.
 
 Example usage:
 
-```
+```lua
 table.shuffle({ "a", "b", "c", "d", "e", "f" }) --> { "d", "a", "c", "b", "f", "e" } (example result)
 ```
 
@@ -146,7 +146,7 @@ This is essentially Python's `zip()`.
 
 Example usage:
 
-```
+```lua
 local t1 = { "a", "b", "c" }
 local t2 = { 0, 1, 2 }
 local t3 = { "x", "y", "z" }
