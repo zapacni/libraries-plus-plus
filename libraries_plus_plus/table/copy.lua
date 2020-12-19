@@ -9,7 +9,7 @@ local function copy(tbl: array, deep: boolean?): array
 
 	for index, value in ipairs(tbl) do
 		if typeof(value) == "table" then
-			new[index] = copy(value)
+			new[index] = copy(value, true)
 		else
 			new[index] = value
 		end
