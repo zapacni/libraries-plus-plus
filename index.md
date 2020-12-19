@@ -298,7 +298,7 @@ format.delimit_thousands(-45654) --> -45,654
 format.delimit_thousands(-4542.45)) --> -4,542.45
 ```
 
-## digital_clock(seconds: number): string
+### digital_clock(seconds: number): string
 Returns the seconds provided in a digital clock format as a string. Useful for timers.
 
 Example use:
