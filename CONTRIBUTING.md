@@ -13,5 +13,5 @@ Welcome to the contributing guide! Here you will find the guidelines for contrib
 # Libraries++ Documentation Guide
 * Use heading 2 for library names and heading 3 for library members
 * No line of space between header 3 and description
-* Line of space between description and `Example use: [code]` (also no space in between `Example use:` and code block
+* Line of space between description and `Example use: [code]` (also no space in between `Example use:` and code block)
 * Use `lua` extension for code block
