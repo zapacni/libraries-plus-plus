@@ -1,1 +1,1 @@
-return math.pi * 2
+return 6.28318531
