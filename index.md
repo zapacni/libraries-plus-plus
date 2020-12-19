@@ -162,3 +162,174 @@ end
 	"c" 2 "z"
 ]]--
 ```
+
+## math
+
+### cbrt(num: number): number
+Returns the cube root of `num` and accounts for the case where `num` may be negative.
+
+Example use:
+
+```lua
+math.cbrt(64) --> 4
+math.cbrt(-64) --> -4
+```
+
+### cosec(num: number): number
+Returns the cosecant of `num`.
+
+Example use:
+
+```lua
+math.cosec(5) --> -1.0428352127714
+```
+
+### cotan(num: number): number
+Returns the cotangent of `num`.
+
+Example use:
+
+```lua
+math.cotan(4) --> 0.86369115445062
+```
+
+### e: number
+Euler's number.
+
+Example use:
+
+```lua
+math.e --> ~2.7182818284
+```
+
+### factorial(num: number): number
+Returns `n!`.
+
+Example use:
+
+```lua
+math.factorial(5) --> 120
+```
+
+**Exceptions**
+* This function will throw an exception if `num` is non-integral
+* This function will throw an exception if `num` is negative
+
+### factorsof(num: number): { [number]: number }
+Returns the factors of `num` in an array.
+
+Example use:
+```lua
+math.factorsof(20) --> { 1, 2, 4, 5, 10, 20 }
+```
+
+**Exceptions**
+* This function will throw an exception if `num` is non-integral
+* This function will throw an exception if `num` is negative
+
+### iseven(num: number): boolean
+Returns a boolean that indicates if `num` is even or not.
+
+Example use:
+
+```lua
+math.iseven(5) --> false
+math.iseven(10) --> true
+```
+
+### isinf(num: number): boolean
+Returns a boolean that indicates if `num` is (negative) infinity.
+
+Example use:
+```lua
+math.isinf(math.huge) --> true
+math.isinf(-math.huge) --> true
+math.isinf(19) --> false
+math.isinf(1/0) --> true
+math.isinf(-1/0) --> true
+```
+
+### isnan(arg: any): boolean
+Returns a boolean that indicates if `arg` is NaN.
+
+Example use:
+```lua
+math.isnan(0/0) --> true
+math.isnan(math.sqrt(-1)) --> true
+math.isnan(math.huge) --> false
+```
+
+### nan: number
+NaN itself. (not really since NaN ~= NaN :P, and NaN is technically a number)
+
+Example use:
+```lua
+math.nan --> -nan(ind)
+```
+
+### roundtoplace(num: number, place: number?): number
+Rounds `num` to `place` places. By default `place` will be 1 if omitted.
+
+Example use:
+
+```lua
+math.roundtoplace(1.567, 2) --> 1.57
+```
+
+### secant(num: number): number
+Returns the secant of `num`.
+
+Example use:
+
+```lua
+math.secant(6) --> 1.0414819265951
+```
+
+## format
+
+### delimit_thousands(num: number): string
+Returns `num` as a string with thousands formatted. Does not account for localization, however it accounts for the case where `num` is negative or where `num` is non-integral.
+
+Example use:
+
+```lua
+format.delimit_thousands(50000) --> 50,000
+format.delimit_thousands(-45654) --> -45,654
+format.delimit_thousands(-4542.45)) --> -4,542.45
+```
+
+## digital_clock(seconds: number): string
+Returns the seconds provided in a digital clock format as a string. Useful for timers.
+
+Example use:
+
+```
+for i = 120, 0, -1 do
+	print(format.digital_clock(i))
+end
+
+-->
+--[[
+	2:00
+	1:59
+	1:58
+	...
+	0:00
+]]--
+```
+
+### interpolate(str: string, tbl: { [string]: string | number }): string
+Simulates JavaScript templates interpolation.
+
+Example use:
+```lua
+format.interpolate("Hello my name is {name} and I am {age} years old!", {
+	name = "incapaz",
+	age = 16
+}) --> "Hello my name is incapaz and I am 16 years old!"
+```
+
+## region3
+
+### from_part(part: BasePart): Region3
+Creates a Region3 out of a BasePart's `Size` and `Position`.
