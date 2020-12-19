@@ -1,3 +1,3 @@
-local nan = 0/0
+local nan: number = 0/0
 
 return nan
