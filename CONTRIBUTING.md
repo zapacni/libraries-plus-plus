@@ -4,7 +4,7 @@ Welcome to the contributing guide! Here you will find the guidelines for contrib
 
 
 # Libraries++ Source Contributing Guide
-* Use `snake_case` for variable, parameter, etc. names
+* Respect most of the [Roblox Lua Style Guide](https://roblox.github.io/lua-style-guide/); only exception is use `snake_case` for variable, parameter, etc. names
 * Custom library names use `snake_case`, library members also use `snake_case`
 * Built-in library extensions use all lowercase
 * Keep comments within 80 columns, keep code lines within 120 columns
