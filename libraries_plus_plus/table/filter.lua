@@ -1,6 +1,6 @@
 type generictable = { [any] : any }
 
-function filter(tbl: generictable, func: (any, any) -> boolean) : generictable
+local function filter(tbl: generictable, func: (any, any) -> boolean) : generictable
 	local filteredtable: generictable = {}
 	
 	for index, value in pairs(tbl) do
@@ -11,3 +11,5 @@ function filter(tbl: generictable, func: (any, any) -> boolean) : generictable
 	
 	return filteredtable
 end
+
+return filter
