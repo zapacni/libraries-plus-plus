@@ -1,4 +1,4 @@
-local function zip(...) -- help
+local function zip(...) -- help how do i denote a function with variable returns
 	local args, args_values = { ... }, { }
 	local i = 0
 
