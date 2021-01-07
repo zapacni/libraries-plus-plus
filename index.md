@@ -293,7 +293,7 @@ math.factorial(5) --> 120
 * This function will throw an exception if `num` is non-integral
 * This function will throw an exception if `num` is negative
 
-### factorsof(num: number): { [number]: number }
+### factorsof(num: number): { number }
 Returns the factors of `num` in an array.
 
 Example use:
