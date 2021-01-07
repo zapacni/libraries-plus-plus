@@ -408,7 +408,7 @@ Returns the seconds provided in a digital clock format as a string. Useful for t
 
 Example use:
 
-```
+```lua
 for i = 120, 0, -1 do
 	print(format.digital_clock(i))
 end
@@ -427,6 +427,7 @@ end
 Simulates JavaScript templates interpolation.
 
 Example use:
+
 ```lua
 format.interpolate("Hello my name is {name} and I am {age} years old!", {
 	name = "incapaz",
