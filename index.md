@@ -32,6 +32,24 @@ string.isalpha("abc") --> true
 string.isalpha("hello world") --> false
 ```
 
+### islower(str: string): boolean
+Returns a boolean that indicates if `str` is all lowercase. Inspired by Python's `str.islower()'
+
+Example use:
+```lua
+string.islower("abc") --> true
+string.islower("ABC") --> false
+```
+
+### isupper(str: string): boolean
+Returns a boolean that indicates if `str` is all uppercase. Inspired by Python's `str.isupper()'
+
+Example use:
+```lua
+string.isupper("ABC") --> true
+string.isupper("abc") --> false
+```
+
 ### iswhitespace(str: string): boolean
 Returns a boolean that indicates if `str` is entirely whitespace. Useful for when taking input and don't want space-only text. Inspired by Python's `str.isspace()`
 
@@ -60,7 +78,17 @@ Example use:
 
 ```lua
 string.strip("    apple ") --> "apple"
-string.strip("    dogs are cute  ", "dc") -- "ogs are ute"
+string.strip("    dogs are cute  ", "dc") -- "ogs are cute"
+```
+
+### swapcase(str: string): string
+Returns the cases of each character in `str` swapped.
+
+Example use:
+
+```lua
+string.swapcase("hELLO wORLD") --> "Hello World"
+string.swapcase("sPoNgEbOb CaSe") --> "SpOnGeBoB cAsE"
 ```
 
 ### title(str: string): string
@@ -86,7 +114,7 @@ string.zfill("+500", 5) --> "0+500"
 
 ## table
 
-### copy(tbl: { [number]: any }, deep: boolean?): { [number]: any }
+### copy(tbl: { any }, deep: boolean?): { any }
 Returns a copy of `tbl`. The `deep` argument is optional; if not provided the function will by default make a shallow copy.
 
 Example use:
@@ -100,17 +128,34 @@ shallow_tbl_copy[1] == tbl[1] --> true
 deep_tbl_copy[1] == tbl[1] --> false
 ```
 
-### getoccurrencesof(tbl: { [number]: any }, value: any): number
+### count(tbl: { any }, value: any): number
 Returns the amount of times `value` is repeated in `tbl`.
 
 Example usage:
 
 ```lua
-table.getoccurrencesof({ "a", "b", "c", "a", "a" }, "a") --> 3
+table.count({ "a", "b", "c", "a", "a" }, "a") --> 3
+```
+
+### filter(tbl: { any }, predicate: (any, number?, { any }?) -> boolean): { any }
+Returns a copy of `tbl` with all the elements that satisfy the predicate function provided.
+
+Passes the current value, and optionally the current index, and the source array as arguments to the predicate function.
+
+Example use:
+
+```lua
+local tbl = { "cool", "hot", "warm", "chill" }
+local new_tbl = table.filter(tbl, function(value: string)
+	return #value > 4
+end)
+
+new_t --> { "chill" }
 ```
 
 ### isempty(tbl: { [any]: any }): boolean
-Returns a boolean that indicates whether or not `tbl` is empty. This function can take a dictionary as well -- there is no point in making it only take an array.
+Returns a boolean that indicates whether or not `tbl` is empty.
+This function can take a dictionary as well -- there is no point in making it only take an array.
 
 Example usage:
 
@@ -119,7 +164,40 @@ table.isempty({ }) --> true
 table.isempty({ 0, 1, 2 }) --> false
 ```
 
-### reverse(tbl: { [number]: any }): { [number]: any }
+### map(tbl: { any }, callback: (any, number?, { any }?) -> (any)): { any }
+Returns a copy of `tbl` with the function `callback` applied to each element in `tbl`.
+
+Passes the current value, and optionally the current index, and the source array as arguments to the callback function.
+
+Example usage:
+
+```lua
+local tbl = { 1, 4, 9, 16, 25 }
+local new_tbl = table.map(tbl, function(value: number)
+	return 2*value
+end)
+
+new_t --> { 2, 8, 18, 32, 50 }
+```
+
+### reduce(tbl: { any }, reducer: (any, any, number?, { any }?) -> (any), initial_value: any?): any
+Reduces `tbl` to a single value calling the `reducer` function, passing each element of `tbl` to the reducer.
+The return value of the reducer is stored in an accumulator.
+
+Passes the accumulated result (or initial value if provided), the current value, and optionally the current index, and the source array as arguments to the reducer.
+
+Example use:
+
+```lua
+local tbl = { "a", "b", "c", "d", "e", "f" }
+local reduced = table.reduce(tbl, function(accumulated: string, value: string)
+	return accumulated .. value
+end)
+
+reduced --> "abcdef"
+```
+
+### reverse(tbl: { any }): { any }
 Reverses `tbl` and returns it.
 
 Example usage:
@@ -128,7 +206,7 @@ Example usage:
 table.reverse({ 0, 1, 2 }) --> { 2, 1, 0 }
 ```
 
-### shuffle(tbl: { [number]: any }): { [number]: any }
+### shuffle(tbl: { any }): { any }
 Shuffles the contents of `tbl` and returns `tbl` back shuffled.
 
 Example usage:
@@ -140,7 +218,7 @@ table.shuffle({ "a", "b", "c", "d", "e", "f" }) --> { "d", "a", "c", "b", "f", "
 **Exceptions**
 * This function will throw an exception if `#tbl < 2` since there is no point in shuffling a single-element table let alone an empty one.
 
-### zip(...: { [number]: any })
+### zip(...: { any })
 I don't know how to represent a function type that returns a function that returns a variant amount of arguments.
 This is essentially Python's `zip()`.
 
@@ -267,6 +345,24 @@ Example use:
 math.nan --> -nan(ind)
 ```
 
+### nhuge: number
+Negative infinity.
+
+Example use:
+
+```lua
+math.nhuge --> -inf
+```
+
+### phi: number
+The constant phi.
+
+Example use:
+
+```lua
+math.phi --> ~1.6180339887499
+```
+
 ### roundtoplace(num: number, place: number?): number
 Rounds `num` to `place` places. By default `place` will be 1 if omitted.
 
@@ -283,6 +379,15 @@ Example use:
 
 ```lua
 math.secant(6) --> 1.0414819265951
+```
+
+### tau: number
+The constant tau. Equivalent of 2π.
+
+Example use:
+
+```lua
+math.tau --> ~6.2831853071796
 ```
 
 ## format
