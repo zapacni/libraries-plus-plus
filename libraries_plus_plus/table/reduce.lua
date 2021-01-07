@@ -1,6 +1,6 @@
 type array = { [number]: any }
 
-local function reduce(tbl: array, reducer: (any, any, number?, array?) -> (any), initial_value: any?): array
+local function reduce(tbl: array, reducer: (any, any, number?, array?) -> (any), initial_value: any?): any
 	local accumulator = initial_value
 
 	for index, value in ipairs(tbl) do
