@@ -429,7 +429,7 @@ Simulates JavaScript templates interpolation.
 Example use:
 
 ```lua
-format.interpolate("Hello my name is {name} and I am {age} years old!", {
+format.interpolate("Hello my name is ${name} and I am ${age} years old!", {
 	name = "incapaz",
 	age = 16
 }) --> "Hello my name is incapaz and I am 16 years old!"
