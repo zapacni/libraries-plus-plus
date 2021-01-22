@@ -1,4 +1,4 @@
-type array = { [number]: any }
+type array = { any }
 
 local function filter(tbl: array, predicate: (any, number?, array?) -> boolean): array
 	local new_tbl = { }

@@ -1,4 +1,4 @@
-type array = { [number]: any }
+type array = { any }
 
 local function map(tbl: array, callback: (any, number?, array?) -> (any)): array
 	local new_tbl = table.create(#tbl)

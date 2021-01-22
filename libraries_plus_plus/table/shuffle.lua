@@ -1,4 +1,4 @@
-type array = { [number]: any }
+type array = { any }
 
 local function shuffle(tbl: array): array
 	assert(#tbl > 1, "bad argument #2 to 'shuffle' (table length < 2)")

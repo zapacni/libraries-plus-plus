@@ -1,4 +1,4 @@
-type array = { [number]: any }
+type array = { any }
 
 local function copy(tbl: array, deep: boolean?): array
 	if not deep then

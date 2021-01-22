@@ -1,4 +1,4 @@
-local function count(tbl: { [number]: any }, value: any): number
+local function count(tbl: { any }, value: any): number
 	local occurrences = 0
 
 	for _, element in ipairs(tbl) do
