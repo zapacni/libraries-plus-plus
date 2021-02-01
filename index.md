@@ -435,7 +435,59 @@ format.interpolate("Hello my name is ${name} and I am ${age} years old!", {
 }) --> "Hello my name is incapaz and I am 16 years old!"
 ```
 
+## instance
+
+### get_ancestors(instance: Instance): { Instance? }
+Returns the ancestors of `instance` all the way up to the DataModel (`game`).
+
+### get_ancestors_of_class(instance: Instance, class_name: string): { Instance? }
+Functions like `instance.get_ancestors` but only returns ancestors of a certain class.
+
+### get_ancestors_which_are_a(instance: Instance, class_name: string): { Instance? }
+Functions like `instance.get_ancestors_of_class` but takes into account inheritance.
+
+### get_children_of_class(instance: Instance, class_name: string): { Instance? }
+Returns the children of `instance` that are of a certain class.
+
+### get_children_which_are_a(instance: Instance, class_name: string): { Instance? }
+Functions like `instance.get_children_of_class` but takes into account inheritance.
+
+### get_descendants_of_class(instance: Instance, class_name: string): { Instance? }
+Returns the descendants of `instance` that are of a certain class.
+
+### get_descendants_which_are_a(instance: Instance, class_name: string): { Instance? }
+Functions like `instance.get_descendants_of_class` but takes into account inheritance.
+
+### get_siblings(instance: Instance): { Instance? }
+Returns the siblings of `instance`.
+
+### get_siblings_of_class(instance: Instance, class_name: string): { Instance? }
+Returns the siblings of `instance` that are of a certain class.
+
+### get_siblings_which_are_a(instance: Instance, class_name: string): { Instance? }
+Functions like `instance.get_siblings_of_class` but takes into account inheritance.
+
+### wait_for_child_of_class(instance: Instance, class_name: string): Instance?
+Waits for a child of `instance` of a certain class. Currently does not support a `timeout` argument.
+
+### wait_for_child_which_is_a(instance: Instance, class_name: string): Instance?
+Functions like `instance.wait_for_child_of_class` but takes into account inheritance. Currently does not support a `timeout` argument.
+
+## color3
+
+### add(lhs: Color3, rhs: Color3): Color3
+Adds the RGB components of the left and right hand side together to form one Color3.
+
+### subtract(lhs: Color3, rhs: Color3): Color3
+Subtracts the RGB components of the left and right hand side together to form one Color3.
+
+### multiply(lhs: Color3, rhs: Color3 | number): Color3
+Multiplies the RGB components of the left and right hand side together to form one Color3. If `rhs` is a number each component of the left hand side is multiplied by `rhs`.
+
+### divide(lhs: Color3, rhs: Color3 | number): Color3
+Divides the RGB components of the left and right hand side together to form one Color3. If `rhs` is a number each component of the left hand side is divided by `rhs`.
+
 ## region3
 
 ### from_part(part: BasePart): Region3
-Creates a Region3 out of a BasePart's `Size` and `Position`.
+Creates a Region3 out of a BasePart's `Size` and `Position`. Great for your non-rotated Region3 needs.
