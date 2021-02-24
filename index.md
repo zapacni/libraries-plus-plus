@@ -114,14 +114,14 @@ string.title("_hello world") --> "_hello World"
 ```
 
 ### zfill(str: string, goal: number): string
-Prepends zeroes to `str` until the length of the new string == `goal`. If `goal <= #str` no filling will be done.
-Only caveat is that no sign check is done. Maybe in the future this will be supported.
+Prepends zeroes to `str` until the length of the new string reaches `goal`. If `goal <= #str` no filling will be done.
 
 Example use:
 
 ```lua
-string.zfill("Hello", 10) --> "00000Hello"
-string.zfill("+500", 5) --> "0+500"
+string.zfill("+500", 5)) --> "+0500"
+string.zfill("-10", 10)) --> "-000000010"
+string.zfill("+hello-world", 15)) --> "+000hello-world"
 ```
 
 ## table
