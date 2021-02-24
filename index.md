@@ -71,6 +71,18 @@ string.join("", { "a", "b", "c" }) --> "abc"
 string.join("|", "xyz") --> "x|y|z"
 ```
 
+### startswith(str: string, start: string): boolean
+Returns a boolean value indicating whether `str` starts with the string `start`.
+Useful for admin commands, checking if a string representing a website is HTTP(S), etc.
+
+Example usage:
+
+```lua
+string.startswith("!fly me", "!") --> true
+string.startswith("https://www.roblox.com/", "https://") --> true
+string.startswith("hello world", "Hello") --> false
+```
+
 ### strip(str: string, chars: string?): string
 Strips any leading and trailing whitespace from `str`, and optionally strips `str` of any characters in `chars`. The latter is optional, so if not provided the function will just strip leading and trailing whitespace.
 
@@ -253,6 +265,19 @@ math.cbrt(64) --> 4
 math.cbrt(-64) --> -4
 ```
 
+### comb(n: number, k: number): number
+Returns how many ways to choose `k` items from `n` items with no repetition and no order.
+
+Example use:
+
+```lua
+math.comb(10, 2) --> 45
+```
+
+**Exceptions**
+* This function will throw an exception if `k` or `n` are non-integral
+* This function will throw an exception if `k` or `n` are negative
+
 ### cosec(num: number): number
 Returns the cosecant of `num`.
 
@@ -433,6 +458,31 @@ format.interpolate("Hello my name is ${name} and I am ${age} years old!", {
 	name = "incapaz",
 	age = 16
 }) --> "Hello my name is incapaz and I am 16 years old!"
+```
+
+## scheduler
+
+### delay(num: number, f: (number?) -> ())
+Delays the call to `f` for about `n` seconds without interrupting the current thread.
+Passes the actual time waited to `f`.
+
+Example usage:
+
+```lua
+scheduler.delay(5, print) --> 5.0105606773868 (this is what waited for me, will vary between calls)
+```
+
+### spawn(f, ...)
+A generic "fast spawn" implementation without the ~1/30th wait at the beginning.
+
+### wait(num: number): number
+A custom implementation of `wait` based on RunService's `PostSimulation` event.
+Returns the actual time waited in seconds.
+
+Example use:
+
+```lua
+scheduler.wait(2) --> 2.0169207276776 (this is what waited for me, will vary between calls)
 ```
 
 ## instance
