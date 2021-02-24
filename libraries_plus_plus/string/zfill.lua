@@ -1,6 +1,8 @@
 local function zfill(str: string, goal: number): string
-	-- only caveat is no sign check supported
-	return string.rep("0", goal - #str) .. str
+    local no_sign, replacements = str:gsub("^[%-%+]", "")
+    local sign = str:match("^[%-%+]") or ""
+    return sign .. string.rep("0", goal - #str - replacements + 1) .. no_sign
 end
+
 
 return zfill
