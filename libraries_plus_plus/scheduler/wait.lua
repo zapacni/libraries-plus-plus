@@ -6,7 +6,7 @@ local function wait(num: number): number
     local dt = 0
 
     while dt < num do
-        dt += RunService.Heartbeat:Wait()
+        dt += RunService.PostSimulation:Wait()
     end
     return dt
 end
